@@ -2,6 +2,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+@theme {
+  --shadow-input: 0px 1px 2px 0px rgba(10, 13, 20, 0.03);
+}
+
 body {
   background-color: #f3f5f8;
   min-height: 100vh;

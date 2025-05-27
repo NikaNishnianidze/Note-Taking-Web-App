@@ -27,14 +27,18 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-  const onSubmit: SubmitHandler<IInputs> = (data) => {
-    event?.preventDefault();
-    window.scrollTo(0, 0);
-    localStorage.setItem("user", JSON.stringify(data));
-    navigate("/login");
-  };
+
   const handleSignup = () => {
     navigate("/signup");
+  };
+  const handleLogin = () => {
+    if (!localStorage.getItem("user")) {
+      return;
+    }
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    if (user.email && user.password) {
+      navigate("/notes");
+    }
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -48,7 +52,7 @@ export default function Login() {
         <p className="mt-[8px] text-center text-[14px] text-[#525866] leading-[18.2px] tracking-[-0.2px]">
           Please log in to continue
         </p>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(handleLogin)}>
           <div className="email mt-[40px] flex flex-col gap-[6px] ">
             <label
               htmlFor="email"

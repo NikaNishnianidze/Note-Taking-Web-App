@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Layout from "./Layout/Layout";
 import AllNotes from "./pages/AllNotes";
 import Note from "./pages/Note";
+import Archived from "./pages/Archived";
+import ArchivedNote from "./pages/ArchivedNote";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: ":index",
         element: <Note />,
+      },
+      {
+        path: "archived",
+        element: <Archived />,
+      },
+      {
+        path: "archived/:index",
+        element: <ArchivedNote />,
       },
     ],
   },

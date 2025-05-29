@@ -14,7 +14,7 @@ export default function MobileNavigation() {
   const iconContainerBase =
     "w-[68.6px] py-[4px] flex justify-center items-center rounded-[4px]";
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white border-t-[1px] border-[#E0E4EA] shadow-nav border-gray-200 flex items-center justify-center py-[12px] px-[16px] z-50">
+    <div className="fixed bottom-0 left-0 w-full bg-white border-t-[1px] dark:bg-[#0E121B] border-[#E0E4EA] shadow-nav border-gray-200 flex items-center justify-center py-[12px] px-[16px] z-50">
       <div
         onClick={() => {
           setActive("home");
@@ -31,7 +31,10 @@ export default function MobileNavigation() {
         />
       </div>
       <div
-        onClick={() => setActive("search")}
+        onClick={() => {
+          setActive("search");
+          navigate("/notes/search");
+        }}
         className={`${iconContainerBase} ${
           active === "search" ? "bg-[#EBF1FF]" : "bg-white"
         }`}
@@ -58,7 +61,10 @@ export default function MobileNavigation() {
         />
       </div>
       <div
-        onClick={() => setActive("tag")}
+        onClick={() => {
+          setActive("tag");
+          navigate("/notes/tags");
+        }}
         className={`${iconContainerBase} ${
           active === "tag" ? "bg-[#EBF1FF]" : "bg-white"
         }`}
@@ -70,7 +76,10 @@ export default function MobileNavigation() {
         />
       </div>
       <div
-        onClick={() => setActive("settings")}
+        onClick={() => {
+          setActive("settings");
+          navigate("/notes/settings");
+        }}
         className={`${iconContainerBase} ${
           active === "settings" ? "bg-[#EBF1FF]" : "bg-white"
         }`}

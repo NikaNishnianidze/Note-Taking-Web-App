@@ -48,18 +48,17 @@ export default function Archived() {
                     </p>
                   </div>
                   <div className="tags flex items-center gap-[4px]">
-                    {note.tags.map((tag, index) => {
-                      return (
+                    {note.tags &&
+                      note.tags.map((tag, tagIdx) => (
                         <div
-                          key={index}
+                          key={tagIdx}
                           className="tag py-[2px] px-[6px] text-center rounded-[4px] bg-[#E0E4EA]"
                         >
                           <p className="text-[12px] text-[#0E121B] font-normal leading-[120%] tracking-[-0.2px]">
                             {tag}
                           </p>
                         </div>
-                      );
-                    })}
+                      ))}
                   </div>
                   <div className="date mt-[12px]">
                     <p className="text-[12px] text-[#2B303B] font-normal leading-[120%] tracking-[-0.2px]">

@@ -11,6 +11,12 @@ import AllNotes from "./pages/AllNotes";
 import Note from "./pages/Note";
 import Archived from "./pages/Archived";
 import ArchivedNote from "./pages/ArchivedNote";
+import Tags from "./pages/Tags";
+import Tag from "./pages/Tag";
+import ChosenTag from "./pages/ChosenTag";
+import Search from "./pages/Search";
+import Settings from "./pages/Settings";
+import ColorTheme from "./pages/ColorTheme";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +52,30 @@ const router = createBrowserRouter([
       {
         path: "archived/:index",
         element: <ArchivedNote />,
+      },
+      {
+        path: "tags",
+        element: <Tags />,
+      },
+      {
+        path: "tags/:tag",
+        element: <Tag />,
+      },
+      {
+        path: "tags/:tag/:index",
+        element: <ChosenTag />,
+      },
+      {
+        path: "search",
+        element: <Search />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
+        path: "settings/color-theme",
+        element: <ColorTheme />,
       },
     ],
   },

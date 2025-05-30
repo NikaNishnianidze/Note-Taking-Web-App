@@ -28,18 +28,18 @@ export default function Search() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="logo w-[343px] py-[13px] px-[16px]">
+      <div className="logo w-[343px] py-[13px] px-[16px] tb:w-[704px] tb:py-[23px]">
         <img
           src={logo}
           alt="logo icon"
           className="dark:filter dark:brightness-0 dark:invert"
         />
       </div>
-      <div className="main-box w-[375px] rounded-t-[8px] flex-grow bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
+      <div className="main-box w-[375px] tb:py-[24px] tb:px-[32px] tb:w-[768px] rounded-t-[8px] flex-grow bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
         <h1 className="text-[24px] text-[#0E121B] font-bold leading-[120%] tracking-[-0.5px] dark:text-white">
           Search
         </h1>
-        <div className="search-input py-[13px] px-[16px] dark:bg-[#0E121B] mt-[16px] w-[343px] border-[1px] border-[#CACFD8] bg-[#F5F7FA] shadow-input flex items-center gap-[8px] rounded-[8px]">
+        <div className="search-input py-[13px] px-[16px] dark:bg-[#0E121B] mt-[16px] w-[343px] tb:w-[704px] border-[1px] border-[#CACFD8] bg-[#F5F7FA] shadow-input flex items-center gap-[8px] rounded-[8px]">
           <img
             src={SearchIcon}
             alt="search icon"
@@ -84,7 +84,7 @@ export default function Search() {
                     {formattedDates[index]}
                   </p>
                 </div>
-                <div className="divider w-[343px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
+                <div className="divider w-[343px] tb:w-[704px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
               </div>
             );
           })}
@@ -102,7 +102,7 @@ export default function Search() {
           </div>
         </div>
         {filteredNotes.length < 1 ? (
-          <div className="mt-[16px] flex flex-col w-[343px] gap-[16px]">
+          <div className="mt-[16px] flex flex-col w-[343px] gap-[16px] tb:w-[688px]">
             <p className="text-[14px] font-normal text-[#2B303B] dark:text-[#CACFD8] ">
               All notes matching{" "}
               <span className="dark:text-white">{`"${search}"`}</span> are

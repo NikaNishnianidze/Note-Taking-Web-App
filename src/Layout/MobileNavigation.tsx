@@ -16,7 +16,7 @@ export default function MobileNavigation() {
   const iconContainerBase =
     "w-[68.6px] py-[4px] flex justify-center items-center rounded-[4px]";
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white border-t-[1px] dark:bg-[#0E121B] border-[#E0E4EA] dark:border-[#232530] shadow-nav dark:shadow-darknav border-gray-200 flex items-center justify-center py-[12px] px-[16px] z-50">
+    <div className="fixed bottom-0 left-0 w-full bg-white border-t-[1px] dark:bg-[#0E121B] border-[#E0E4EA] dark:border-[#232530] shadow-nav dark:shadow-darknav border-gray-200 flex items-center tb:gap-[76px] justify-center py-[12px] px-[16px] z-50">
       <div
         onClick={() => {
           setActive("home");

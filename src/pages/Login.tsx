@@ -1,7 +1,7 @@
 import logo from "../../public/assets/images/logo.svg";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import infoCircle from "../../public/assets/images/icon-info.svg";
 import type { IInputs } from "../Inputs";
 import showPasswordIcon from "../../public/assets/images/icon-show-password.svg";
@@ -42,7 +42,7 @@ export default function Login() {
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="container w-[343px] py-[48px] px-[16px] dark:bg-[#0E121B] bg-white rounded-[12px]">
+      <div className="container w-[343px] py-[48px] tb:w-[522px] tb:flex tb:flex-col tb:items-center px-[16px] dark:bg-[#0E121B] bg-white rounded-[12px]">
         <div className="logo flex justify-center">
           <img
             src={logo}
@@ -50,7 +50,7 @@ export default function Login() {
             className="dark:filter dark:brightness-0 dark:invert"
           />
         </div>
-        <h1 className="mt-[24px] text-center dark:teext-white text-[#0E121B] text-[24px] font-bold">
+        <h1 className="mt-[24px] text-center dark:text-white text-[#0E121B] text-[24px] font-bold">
           Welcome to Note
         </h1>
         <p className="mt-[8px] text-center text-[14px] dark:text-[#CACFD8] text-[#525866] leading-[18.2px] tracking-[-0.2px]">
@@ -60,7 +60,7 @@ export default function Login() {
           <div className="email mt-[40px] flex flex-col gap-[6px] ">
             <label
               htmlFor="email"
-              className="text-[14px] dark:text-white text-[#0E121B] font-semibold"
+              className="text-[14px] tb:w-[458px] dark:text-white text-[#0E121B] font-semibold"
             >
               Email Address
             </label>
@@ -69,7 +69,7 @@ export default function Login() {
               id="email"
               {...register("email")}
               placeholder="email@example.com"
-              className="w-[311px] py-[12px] dark:border-[#525866] cursor-pointer px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] tb:w-[458px] py-[12px] dark:border-[#525866] cursor-pointer px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
             />
             <div className="errors">
               {errors.email && (
@@ -83,7 +83,7 @@ export default function Login() {
           <div className="password relative mt-[16px] flex flex-col gap-[6px] ">
             <label
               htmlFor="password"
-              className="text-[14px] dark:text-white text-[#0E121B] font-semibold"
+              className="text-[14px] tb:w-[458px] dark:text-white text-[#0E121B] font-semibold"
             >
               Password
             </label>
@@ -91,7 +91,7 @@ export default function Login() {
               type={isPasswordVisible ? "text" : "password"}
               id="password"
               {...register("password")}
-              className="w-[311px] py-[12px] cursor-pointer dark:border-[#525866] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] py-[12px] tb:w-[458px] cursor-pointer dark:border-[#525866] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
             />
             <img
               src={isPasswordVisible ? hidePasswordIcon : showPasswordIcon}
@@ -111,20 +111,24 @@ export default function Login() {
           </div>
           <button
             type="submit"
-            className="mt-[16px] dark:text-white cursor-pointer w-[311px] py-[12.5px] rounded-[8px] bg-[#335CFF] text-white text-[14px] font-semibold "
+            className="mt-[16px] tb:w-[458px] dark:text-white cursor-pointer w-[311px] py-[12.5px] rounded-[8px] bg-[#335CFF] text-white text-[14px] font-semibold "
           >
             Login
           </button>
         </form>
-        <div className="divider w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
+        <div className="divider tb:w-[458px] w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
         <p className="mt-[24px] text-center text-[14px] dark:text-[#CACFD8] text-[#525866] font-normal">
           Or log in with:
         </p>
-        <button className="mt-[16px] cursor-pointer w-[311px] flex items-center gap-[16px] justify-center text-[16px] text-[#0E121B] font-semibold border-[1px] border-[#CACFD8] rounded-[12px] py-[16px]">
-          <img src={googleIcon} alt="" />
+        <button className="mt-[16px] tb:w-[458px] cursor-pointer w-[311px] flex items-center gap-[16px] justify-center text-[16px] text-[#0E121B] font-semibold border-[1px] border-[#CACFD8] rounded-[12px] py-[16px]">
+          <img
+            src={googleIcon}
+            alt=""
+            className="dark:filter dark:brightness-0 dark:invert"
+          />
           <p className="dark:text-white">Google</p>
         </button>
-        <div className="divider w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
+        <div className="divider tb:w-[458px] w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
         <p className="mt-[16px] dark:text-[#CACFD8] text-center text-[14px] text-[#525866] font-normal">
           No account yet?{" "}
           <span

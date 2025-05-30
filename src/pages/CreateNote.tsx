@@ -42,15 +42,15 @@ export default function CreateNote() {
   };
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="logo w-[343px] py-[13px]">
+      <div className="logo w-[343px] py-[13px] tb:w-[704px] tb:py-[23px]">
         <img
           src={logo}
           alt="logo icon"
           className="dark:filter dark:brightness-0 dark:invert"
         />
       </div>
-      <div className="main-box w-[375px] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
-        <div className="options flex items-center justify-between w-[343px] mt-[20px]">
+      <div className="main-box w-[375px] tb:w-[768px] tb:py-[24px] tb:px-[32px] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
+        <div className="options flex items-center justify-between w-[343px] mt-[20px] tb:w-[704px]">
           <div
             onClick={handleGoback}
             className="goback flex items-center gap-[8px]"
@@ -84,7 +84,7 @@ export default function CreateNote() {
           </div>
         </div>
         <div className="content flex flex-col mt-[24px]">
-          <div className="title w-[343px]">
+          <div className="title w-[343px] tb:w-[704px]">
             <input
               onChange={(e) => setTitle(e.target.value)}
               type="text"
@@ -106,7 +106,7 @@ export default function CreateNote() {
               </div>
               <textarea
                 onChange={(e) => setTags(e.target.value)}
-                className="outline-none w-full max-w-[220px]  text-[#99A0AE] placeholder-[#99A0AE] placeholder-[#99A0AE] text-[12px] font-normal leading-[120%] tracking-[-0.2px] resize-none"
+                className="outline-none w-full max-w-[220px] tb:max-w-[586px] text-[#99A0AE] placeholder-[#99A0AE] placeholder-[#99A0AE] text-[12px] font-normal leading-[120%] tracking-[-0.2px] resize-none"
                 placeholder="Add tags separated by commas (e.g. Work, Planning)"
               />
             </div>
@@ -137,7 +137,7 @@ export default function CreateNote() {
           <input
             onChange={(e) => setNoteText(e.target.value)}
             type="text"
-            className="w-[343px] outline-none h-full text-[12px] dark:placeholder-[#F3F5F8] text-[#2B303B] placeholder-[#2B303B] font-normal leading-[120%] tracking-[-0.2px]"
+            className="w-[343px] tb:w-[704px] outline-none h-full text-[12px] dark:placeholder-[#F3F5F8] text-[#2B303B] placeholder-[#2B303B] font-normal leading-[120%] tracking-[-0.2px]"
             placeholder="Start typing your note here…"
           />
         </div>

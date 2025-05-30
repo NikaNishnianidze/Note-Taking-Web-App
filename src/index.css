@@ -6,6 +6,10 @@
   --shadow-input: 0px 1px 2px 0px rgba(10, 13, 20, 0.03);
   --shadow-nav: 0px -4px 6px 0px rgba(240, 240, 240, 0.6);
   --shadow-darknav: 0px -5px 6px 0px rgba(0, 0, 0, 0.5);
+
+  --breakpoint-mb: 375px;
+  --breakpoint-tb: 768px;
+  --breakpoint-dk: 1440px;
 }
 
 body {

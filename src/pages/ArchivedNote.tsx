@@ -40,7 +40,7 @@ export default function ArchivedNote() {
   };
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="logo py-[13px] w-[343px]">
+      <div className="logo py-[13px] w-[343px] tb:w-[704px] tb:py-[23px]">
         <img
           src={logo}
           alt="logo icon"
@@ -124,8 +124,8 @@ export default function ArchivedNote() {
         </div>
       )}
       {note ? (
-        <div className="main-box w-[375px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
-          <div className="options flex justify-between items-center w-[343px] mt-[20px]">
+        <div className="main-box w-[375px] tb:w-[768px] tb:py-[24px] tb:px-[32px] flex-grow dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
+          <div className="options flex justify-between items-center w-[343px] mt-[20px] tb:w-[704px]">
             <div
               onClick={handleGoBack}
               className="goback flex items-center gap-[4px]"
@@ -168,7 +168,7 @@ export default function ArchivedNote() {
               </div>
             </div>
           </div>
-          <div className="w-[343px] mt-[20px]">
+          <div className="w-[343px] tb:w-[704px] mt-[20px]">
             <div className="title">
               <p className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
                 {note.title}

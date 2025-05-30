@@ -23,7 +23,7 @@ export default function Archived() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="logo w-[343px]  py-[13px]">
+      <div className="logo w-[343px]  py-[13px] tb:py-[23px] tb:w-[704px]">
         <img
           src={logo}
           alt="logo icon"
@@ -31,12 +31,12 @@ export default function Archived() {
         />
       </div>
 
-      <div className="main-box w-[375px] dark:bg-[#0E121B] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px]">
+      <div className="main-box w-[375px] tb:w-[768px] dark:bg-[#0E121B] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px]">
         <div className="text w-[343px] mt-[20px] flex flex-col gap-[8px]">
           <h1 className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
             Archived Notes
           </h1>
-          <p className="text-[14px] text-[#2B303B] dark:text-[#E0E4EA] font-normal leading-[130%] tracking-[-0.2px]">
+          <p className="text-[14px] text-[#2B303B] tb:w-[704px] tb:mt-[10px] dark:text-[#E0E4EA] font-normal leading-[130%] tracking-[-0.2px]">
             All your archived notes are stored here. You can restore or delete
             them anytime.
           </p>
@@ -73,12 +73,12 @@ export default function Archived() {
                       {formattedDates[index]}
                     </p>
                   </div>
-                  <div className="divider w-[343px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
+                  <div className="divider w-[343px] bg-[#E0E4EA] tb:w-[704px] h-[1px] dark:bg-[#232530]"></div>
                 </div>
               );
             })
           ) : (
-            <div className="text text-[#E0E4EA] flex flex-col gap-[18px] w-[343px]">
+            <div className="text text-[#E0E4EA] flex flex-col gap-[18px] w-[343px] tb:w-[688px]">
               <p>
                 No notes have been archived yet. Move notes here for
                 safekeeping, or{" "}

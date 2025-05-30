@@ -28,15 +28,15 @@ export default function Tag() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="logo w-[343px] py-[13px]">
+      <div className="logo w-[343px] py-[13px] tb:w-[704px] tb:py-[23px]">
         <img
           src={logo}
           alt="logo icon"
           className="dark:filter dark:brightness-0 dark:invert"
         />
       </div>
-      <div className="main-box w-[375px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
-        <div className="goback flex items-center mt-[20px] gap-[8px] w-[343px]">
+      <div className="main-box w-[375px] flex-grow tb:w-[768px] tb:py-[24px] tb:px-[32px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
+        <div className="goback flex items-center mt-[20px] gap-[8px] w-[343px] ">
           <img
             src={arrowLeft}
             alt="arrow left"

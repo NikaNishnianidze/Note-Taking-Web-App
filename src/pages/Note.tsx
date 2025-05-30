@@ -43,8 +43,8 @@ export default function Note() {
     setArchived(true);
   };
   return (
-    <div className="flex flex-col items-center">
-      <div className="logo py-[13px] px-[16px] w-[343px]">
+    <div className="flex flex-col items-center min-h-screen">
+      <div className="logo py-[13px] px-[16px] w-[343px] tb:py-[23px] tb:w-[704px]">
         <img
           src={logo}
           alt="logo icon"
@@ -53,7 +53,7 @@ export default function Note() {
       </div>
       {deleteBox && (
         <div className="fixed inset-0 bg-[#0E121B]/50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg w-[343px] dark:bg-[#2B303B] dark:border-[1px] dark:border-[#525866] shadow-lg p-[20px]">
+          <div className="bg-white p-6 rounded-lg w-[343px] tb:w-[440px] dark:bg-[#2B303B] dark:border-[1px] dark:border-[#525866] shadow-lg p-[20px]">
             <div className="deteleicon-text flex items-start gap-[16px]">
               <div className="icon dark:bg-[#525866)] dark:w-[40px] dark:h-[40px] dark:rounded-[8px]">
                 <img
@@ -66,7 +66,7 @@ export default function Note() {
                 <p className="text-[16px] text-[#0E121B] font-semibold leading-[120%] tracking-[-0.3px] dark:text-white">
                   Delete Note
                 </p>
-                <p className="text-[14px] text-[#2B303B] font-normal leading-[130%] tracking-[-0.2px] dark:text-[#E0E4EA]">
+                <p className="text-[14px] text-[#2B303B] tb:w-[344px] font-normal leading-[130%] tracking-[-0.2px] dark:text-[#E0E4EA]">
                   Are you sure you want to permanently delete this note? This
                   action cannot be undone.
                 </p>
@@ -91,7 +91,7 @@ export default function Note() {
       )}
       {archiveBox && (
         <div className="fixed inset-0 bg-[#0E121B]/50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg w-[343px] dark:bg-[#2B303B] dark:border-[1px] dark:border-[#525866] shadow-lg p-[20px]">
+          <div className="bg-white p-6 rounded-lg w-[343px] tb:w-[440px] dark:bg-[#2B303B] dark:border-[1px] dark:border-[#525866] shadow-lg p-[20px]">
             <div className="deteleicon-text flex items-start gap-[16px]">
               <div className="icon">
                 <img
@@ -104,7 +104,7 @@ export default function Note() {
                 <p className="text-[16px] text-[#0E121B] dark:text-white font-semibold leading-[120%] tracking-[-0.3px]">
                   Archive Note
                 </p>
-                <p className="text-[14px] text-[#2B303B] dark:text-[#E0E4EA] font-normal leading-[130%] tracking-[-0.2px]">
+                <p className="text-[14px] tb:w-[344px] text-[#2B303B] dark:text-[#E0E4EA] font-normal leading-[130%] tracking-[-0.2px]">
                   Are you sure you want to archive this note? You can find it in
                   the Archived Notes section and restore it anytime.
                 </p>
@@ -127,7 +127,7 @@ export default function Note() {
           </div>
         </div>
       )}
-      <div className="main-box w-[375px] rounded-t-[12px] bg-white dark:bg-[#0E121B] py-[20px] px-[16px]">
+      <div className="main-box w-[375px] flex-grow tb:w-[768px] rounded-t-[12px] bg-white dark:bg-[#0E121B] tb:py-[24px] tb:px-[32px] py-[20px] px-[16px]">
         <div className="options flex justify-between items-center">
           <div
             onClick={handleGoBack}
@@ -173,7 +173,7 @@ export default function Note() {
         </div>
         <div className="divider mt-[12px] w-[343px] h-[1px] bg-[#E0E4EA] dark:bg-[#0E121B]"></div>
         <div className="info flex flex-col">
-          <div className="title mt-[12px] w-[343px]">
+          <div className="title mt-[12px] w-[343px] tb:w-[704px]">
             <p className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
               {note.title}
             </p>
@@ -214,7 +214,7 @@ export default function Note() {
               </div>
             </div>
           </div>
-          <div className="divider mt-[12px] w-[343px] h-[1px] bg-[#E0E4EA] dark:bg-[#232530]"></div>
+          <div className="divider mt-[12px] w-[343px] tb:w-[704px] h-[1px] bg-[#E0E4EA] dark:bg-[#232530]"></div>
           <div className="content flex flex-col mt-[12px]">
             {note.content.split("\n").map((line, i) =>
               line.trim() === "" ? (

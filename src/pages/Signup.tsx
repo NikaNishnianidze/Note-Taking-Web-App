@@ -38,7 +38,7 @@ export default function Signup() {
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="container w-[343px] py-[48px] px-[16px] dark:bg-[#0E121B] bg-white rounded-[12px]">
+      <div className="container w-[343px] tb:w-[522px] tb:flex tb:flex-col tb:items-center py-[48px] px-[16px] dark:bg-[#0E121B] bg-white rounded-[12px]">
         <div className="logo flex justify-center">
           <img
             src={logo}
@@ -53,10 +53,10 @@ export default function Signup() {
           Sign up to start organizing your notes and boost your productivity.
         </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="email mt-[40px] flex flex-col gap-[6px]">
+          <div className="email mt-[40px] flex flex-col tb:items-center gap-[6px]">
             <label
               htmlFor="email"
-              className="text-[14px] dark:text-white text-[#0E121B] font-semibold"
+              className="text-[14px] tb:w-[458px] dark:text-white text-[#0E121B] font-semibold"
             >
               Email Address
             </label>
@@ -65,7 +65,7 @@ export default function Signup() {
               id="email"
               {...register("email")}
               placeholder="email@example.com"
-              className="w-[311px] py-[12px] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] dark:bg-[#0E121B] dark:border-[#525866] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] tb:w-[458px] py-[12px] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] dark:bg-[#0E121B] dark:border-[#525866] outline-none text-[14px] font-normal text-[#717784]"
             />
             <div className="errors">
               {errors.email && (
@@ -76,10 +76,10 @@ export default function Signup() {
               )}
             </div>
           </div>
-          <div className="password relative mt-[16px] flex flex-col gap-[6px] ">
+          <div className="password relative mt-[16px] flex flex-col items-center gap-[6px] ">
             <label
               htmlFor="password"
-              className="text-[14px] dark:text-white text-[#0E121B] font-semibold"
+              className="text-[14px] w-[311px] tb:w-[458px] dark:text-white text-[#0E121B] font-semibold"
             >
               Password
             </label>
@@ -87,13 +87,13 @@ export default function Signup() {
               type={isPasswordVisible ? "text" : "password"}
               id="password"
               {...register("password")}
-              className="w-[311px] py-[12px] px-[16px] shadow-input rounded-[8px] dark:border-[#525866] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] tb:w-[458px] py-[12px] px-[16px] shadow-input rounded-[8px] dark:border-[#525866] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
             />
             <img
               src={isPasswordVisible ? hidePasswordIcon : showPasswordIcon}
               alt="show/hide password icon"
               style={{ cursor: "pointer" }}
-              className="w-[20px] h-[20px] absolute right-[15px] top-[65%] transform -translate-y-[50%]"
+              className="w-[20px] h-[20px] absolute right-[15px] tb:right-[25px] top-[65%] transform -translate-y-[50%]"
               onClick={() => setIsPasswordVisible((prev) => !prev)}
             />
             <div className="errors">
@@ -105,18 +105,20 @@ export default function Signup() {
               )}
             </div>
           </div>
-          <button
-            type="submit"
-            className="mt-[16px] w-[311px] py-[12.5px] rounded-[8px] bg-[#335CFF] text-white text-[14px] font-semibold "
-          >
-            Sign up
-          </button>
+          <div className="submit-button tb:flex tb:justify-center">
+            <button
+              type="submit"
+              className="mt-[16px] tb:w-[458px] w-[311px] py-[12.5px] rounded-[8px] bg-[#335CFF] text-white text-[14px] font-semibold "
+            >
+              Sign up
+            </button>
+          </div>
         </form>
-        <div className="divider w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
+        <div className="divider w-[311px] tb:w-[458px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
         <p className="mt-[24px] text-center text-[14px] dark:text-[#CACFD8] text-[#525866] font-normal">
           Or log in with:
         </p>
-        <button className="mt-[16px] w-[311px] flex items-center gap-[16px] justify-center text-[16px] text-[#0E121B] font-semibold border-[1px] border-[#CACFD8] rounded-[12px] py-[16px]">
+        <button className="mt-[16px] tb:w-[458px] w-[311px] flex items-center gap-[16px] justify-center text-[16px] text-[#0E121B] font-semibold border-[1px] border-[#CACFD8] rounded-[12px] py-[16px]">
           <img
             src={googleIcon}
             alt=""
@@ -124,7 +126,7 @@ export default function Signup() {
           />
           <p className="dark:text-white">Google</p>
         </button>
-        <div className="divider w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
+        <div className="divider tb:w-[458px] w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
         <p className="mt-[16px] dark:text-[#CACFD8] text-center text-[14px] text-[#525866] font-normal">
           Already have an account?{" "}
           <span

@@ -20,14 +20,14 @@ export default function AllNotes() {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="logo w-[343px] py-[13px] px-[16px]">
+      <div className="logo w-[343px] tb:w-[704px] tb:py-[23px] py-[13px] px-[16px]">
         <img
           src={logo}
           alt="logo icon"
           className="dark:filter dark:brightness-0 dark:invert"
         />
       </div>
-      <div className="main-box w-[375px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
+      <div className="main-box w-[375px] tb:w-[768px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
         <h1 className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
           All Notes
         </h1>
@@ -63,7 +63,7 @@ export default function AllNotes() {
                     {formattedDates[index]}
                   </p>
                 </div>
-                <div className="divider w-[343px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
+                <div className="divider w-[343px] tb:w-[704px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
               </div>
             );
           })}

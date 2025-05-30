@@ -11,30 +11,48 @@ export default function Settings() {
     navigate("/");
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center min-h-screen">
       <div className="logo w-[343px] py-[13px]">
-        <img src={logo} alt="logo icon" />
+        <img
+          src={logo}
+          alt="logo icon"
+          className="dark:filter dark:brightness-0 dark:invert"
+        />
       </div>
-      <h1 className="mt-[24px] w-[343px] text-[24px] text-[#0E121B] font-bold leading-[120%] tracking-[-0.5px]">
-        Settings
-      </h1>
-      <div className="settings flex flex-col w-[343px] gap-[24px] mt-[24px]">
-        <div
-          onClick={() => {
-            navigate("/notes/settings/color-theme");
-          }}
-          className="theme flex items-center gap-[8px]"
-        >
-          <img src={sunIcon} alt="sun icon" className="w-[20px] h-[20px]" />
-          <p className="text-[14px] font-medium text-[#0E121B]">Color Theme</p>
-        </div>
+      <div className="main-box w-[375px] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
+        <h1 className="mt-[24px] w-[343px] text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
+          Settings
+        </h1>
+        <div className="settings flex flex-col w-[343px] gap-[24px] mt-[24px]">
+          <div
+            onClick={() => {
+              navigate("/notes/settings/color-theme");
+            }}
+            className="theme flex items-center gap-[8px]"
+          >
+            <img
+              src={sunIcon}
+              alt="sun icon"
+              className="w-[20px] h-[20px] dark:filter dark:brightness-0 dark:invert"
+            />
+            <p className="text-[14px] font-medium text-[#0E121B] dark:text-white">
+              Color Theme
+            </p>
+          </div>
 
-        <div
-          onClick={handleLogout}
-          className="logout flex items-center gap-[8px]"
-        >
-          <img src={logoutIcon} alt="logout" className="w-[20px] h-[20px]" />
-          <p className="text-[14px] font-medium text-[#0E121B]">Logout</p>
+          <div
+            onClick={handleLogout}
+            className="logout flex items-center gap-[8px]"
+          >
+            <img
+              src={logoutIcon}
+              alt="logout"
+              className="w-[20px] h-[20px] dark:filter dark:brightness-0 dark:invert"
+            />
+            <p className="text-[14px] font-medium text-[#0E121B] dark:text-white">
+              Logout
+            </p>
+          </div>
         </div>
       </div>
     </div>

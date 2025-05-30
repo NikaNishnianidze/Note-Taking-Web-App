@@ -27,24 +27,28 @@ export default function Search() {
   );
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center min-h-screen">
       <div className="logo w-[343px] py-[13px] px-[16px]">
-        <img src={logo} alt="logo icon" />
+        <img
+          src={logo}
+          alt="logo icon"
+          className="dark:filter dark:brightness-0 dark:invert"
+        />
       </div>
-      <div className="main-box w-[375px] rounded-t-[8px] bg-white py-[20px] px-[16px]">
-        <h1 className="text-[24px] text-[#0E121B] font-bold leading-[120%] tracking-[-0.5px]">
+      <div className="main-box w-[375px] rounded-t-[8px] flex-grow bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
+        <h1 className="text-[24px] text-[#0E121B] font-bold leading-[120%] tracking-[-0.5px] dark:text-white">
           Search
         </h1>
-        <div className="search-input py-[13px] px-[16px] mt-[16px] w-[343px] border-[1px] border-[#CACFD8] bg-[#F5F7FA] shadow-input flex items-center gap-[8px] rounded-[8px]">
+        <div className="search-input py-[13px] px-[16px] dark:bg-[#0E121B] mt-[16px] w-[343px] border-[1px] border-[#CACFD8] bg-[#F5F7FA] shadow-input flex items-center gap-[8px] rounded-[8px]">
           <img
             src={SearchIcon}
             alt="search icon"
-            className="w-[20px] h-[20px]"
+            className="w-[20px] h-[20px] dark:filter dark:brightness-0 dark:invert"
           />
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
-            className="w-[283px] outline-none text-[14px] text-[#0E121B] font-normal leading-[130%] tracking-[-0.2px]"
+            className="w-[283px] outline-none text-[14px] text-[#0E121B] dark:text-white font-normal leading-[130%] tracking-[-0.2px]"
           />
         </div>
         <div className="notes relative flex flex-col gap-[4px] w-[343px] mt-[16px]">
@@ -57,7 +61,7 @@ export default function Search() {
                 className="flex flex-col gap-[12px] p-[8px]"
               >
                 <div className="title">
-                  <p className="text-[16px] text-[#0E121B] font-semibold leading-[120%] tracking-[-0.3px]">
+                  <p className="text-[16px] text-[#0E121B] dark:text-white font-semibold leading-[120%] tracking-[-0.3px]">
                     {note.title}
                   </p>
                 </div>
@@ -66,9 +70,9 @@ export default function Search() {
                     return (
                       <div
                         key={index}
-                        className="tag py-[2px] px-[6px] text-center rounded-[4px] bg-[#E0E4EA]"
+                        className="tag py-[2px] px-[6px] text-center rounded-[4px] bg-[#E0E4EA] dark:bg-[#2B303B]"
                       >
-                        <p className="text-[12px] text-[#0E121B] font-normal leading-[120%] tracking-[-0.2px]">
+                        <p className="text-[12px] text-[#0E121B] dark:text-white font-normal leading-[120%] tracking-[-0.2px]">
                           {tag}
                         </p>
                       </div>
@@ -76,15 +80,20 @@ export default function Search() {
                   })}
                 </div>
                 <div className="date mt-[12px]">
-                  <p className="text-[12px] text-[#2B303B] font-normal leading-[120%] tracking-[-0.2px]">
+                  <p className="text-[12px] text-[#2B303B] dark:text-[#E0E4EA] font-normal leading-[120%] tracking-[-0.2px]">
                     {formattedDates[index]}
                   </p>
                 </div>
-                <div className="divider w-[343px] bg-[#E0E4EA] h-[1px]"></div>
+                <div className="divider w-[343px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
               </div>
             );
           })}
-          <div className="new-note fixed bottom-17 right-4 w-[48px] h-[48px] rounded-full bg-[#335CFF] flex justify-center items-center">
+          <div
+            onClick={() => {
+              navigate("/notes/newnote");
+            }}
+            className="new-note fixed bottom-17 right-4 w-[48px] h-[48px] rounded-full bg-[#335CFF] flex justify-center items-center"
+          >
             <img
               src={createNewNote}
               alt="new note"
@@ -92,6 +101,21 @@ export default function Search() {
             />
           </div>
         </div>
+        {filteredNotes.length < 1 ? (
+          <div className="mt-[16px] flex flex-col w-[343px] gap-[16px]">
+            <p className="text-[14px] font-normal text-[#2B303B] dark:text-[#CACFD8] ">
+              All notes matching{" "}
+              <span className="dark:text-white">{`"${search}"`}</span> are
+              displayed below.
+            </p>
+            <p className="text-[14px] font-normal text-[#2B303B] dark:text-[#CACFD8]">
+              No notes match your search. Try a different keyword or{" "}
+              <span className="underline dark:text-white">
+                create a new note.
+              </span>
+            </p>
+          </div>
+        ) : null}
       </div>
     </div>
   );

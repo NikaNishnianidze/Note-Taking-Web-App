@@ -17,6 +17,7 @@ import ChosenTag from "./pages/ChosenTag";
 import Search from "./pages/Search";
 import Settings from "./pages/Settings";
 import ColorTheme from "./pages/ColorTheme";
+import CreateNote from "./pages/CreateNote";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: "settings/color-theme",
         element: <ColorTheme />,
+      },
+      {
+        path: "newnote",
+        element: <CreateNote />,
       },
     ],
   },

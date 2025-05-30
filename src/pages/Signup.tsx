@@ -38,21 +38,25 @@ export default function Signup() {
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="container w-[343px] py-[48px] px-[16px] bg-white rounded-[12px]">
+      <div className="container w-[343px] py-[48px] px-[16px] dark:bg-[#0E121B] bg-white rounded-[12px]">
         <div className="logo flex justify-center">
-          <img src={logo} alt="logo icon" />
+          <img
+            src={logo}
+            alt="logo icon"
+            className="dark:filter dark:brightness-0 dark:invert"
+          />
         </div>
-        <h1 className="mt-[24px] text-center text-[#0E121B] text-[24px] font-bold">
+        <h1 className="mt-[24px] text-center text-[#0E121B] text-[24px] font-bold dark:text-white">
           Create Your Account
         </h1>
-        <p className="mt-[8px] text-center text-[14px] text-[#525866] leading-[18.2px] tracking-[-0.2px]">
+        <p className="mt-[8px] text-center text-[14px] text-[#525866] dark:text-[#CACFD8] leading-[18.2px] tracking-[-0.2px]">
           Sign up to start organizing your notes and boost your productivity.
         </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="email mt-[40px] flex flex-col gap-[6px] ">
+          <div className="email mt-[40px] flex flex-col gap-[6px]">
             <label
               htmlFor="email"
-              className="text-[14px] text-[#0E121B] font-semibold"
+              className="text-[14px] dark:text-white text-[#0E121B] font-semibold"
             >
               Email Address
             </label>
@@ -61,7 +65,7 @@ export default function Signup() {
               id="email"
               {...register("email")}
               placeholder="email@example.com"
-              className="w-[311px] py-[12px] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] py-[12px] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] dark:bg-[#0E121B] dark:border-[#525866] outline-none text-[14px] font-normal text-[#717784]"
             />
             <div className="errors">
               {errors.email && (
@@ -75,7 +79,7 @@ export default function Signup() {
           <div className="password relative mt-[16px] flex flex-col gap-[6px] ">
             <label
               htmlFor="password"
-              className="text-[14px] text-[#0E121B] font-semibold"
+              className="text-[14px] dark:text-white text-[#0E121B] font-semibold"
             >
               Password
             </label>
@@ -83,7 +87,7 @@ export default function Signup() {
               type={isPasswordVisible ? "text" : "password"}
               id="password"
               {...register("password")}
-              className="w-[311px] py-[12px] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] py-[12px] px-[16px] shadow-input rounded-[8px] dark:border-[#525866] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
             />
             <img
               src={isPasswordVisible ? hidePasswordIcon : showPasswordIcon}
@@ -109,19 +113,23 @@ export default function Signup() {
           </button>
         </form>
         <div className="divider w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
-        <p className="mt-[24px] text-center text-[14px] text-[#525866] font-normal">
+        <p className="mt-[24px] text-center text-[14px] dark:text-[#CACFD8] text-[#525866] font-normal">
           Or log in with:
         </p>
         <button className="mt-[16px] w-[311px] flex items-center gap-[16px] justify-center text-[16px] text-[#0E121B] font-semibold border-[1px] border-[#CACFD8] rounded-[12px] py-[16px]">
-          <img src={googleIcon} alt="" />
-          <p>Google</p>
+          <img
+            src={googleIcon}
+            alt=""
+            className="dark:filter dark:brightness-0 dark:invert"
+          />
+          <p className="dark:text-white">Google</p>
         </button>
         <div className="divider w-[311px] h-[1px] bg-[#CACFD8] mt-[16px]"></div>
-        <p className="mt-[16px] text-center text-[14px] text-[#525866] font-normal">
+        <p className="mt-[16px] dark:text-[#CACFD8] text-center text-[14px] text-[#525866] font-normal">
           Already have an account?{" "}
           <span
             onClick={handleLogin}
-            className="text-[14px] text-[#0E121B] font-normal"
+            className="text-[14px] dark:text-white text-[#0E121B] font-normal"
           >
             Login
           </span>

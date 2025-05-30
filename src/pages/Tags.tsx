@@ -18,34 +18,44 @@ const tagList = [
 export default function Tags() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center gap-[11px]">
+    <div className="flex flex-col items-center gap-[11px] min-h-screen">
       <div className="logo w-[343px] py-[13px]">
-        <img src={logo} alt="logo icon" />
+        <img
+          src={logo}
+          alt="logo icon"
+          className="dark:filter dark:brightness-0 dark:invert"
+        />
       </div>
-      <div className="title mt-[20px] w-[343px]">
-        <p className="text-[#0E121B] text-[24px] font-bold leading-[120%] tracking-[-0.5px] mb-[16px]">
-          Tags
-        </p>
-      </div>
-      <div className="tag-list flex flex-col items-center gap-[11.5px]">
-        {tagList.map((tag, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center gap-[8px] w-[343px]"
-          >
-            <div className="list flex items-center gap-[8px] w-[343px]">
-              <img
-                src={tagsIcon}
-                alt="tags icon"
-                className="w-[20px] h-[20px]"
-              />
-              <button key={tag} onClick={() => navigate(`/notes/tags/${tag}`)}>
-                {tag}
-              </button>
+      <div className="main-box w-[375px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
+        <div className="title mt-[20px] w-[343px]">
+          <p className="text-[#0E121B] text-[24px] dark:text-white font-bold leading-[120%] tracking-[-0.5px] mb-[16px]">
+            Tags
+          </p>
+        </div>
+        <div className="tag-list flex flex-col items-center gap-[11.5px]">
+          {tagList.map((tag, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center gap-[8px] w-[343px]"
+            >
+              <div className="list flex items-center gap-[8px] w-[343px]">
+                <img
+                  src={tagsIcon}
+                  alt="tags icon"
+                  className="w-[20px] h-[20px] dark:filter dark:brightness-0 dark:invert"
+                />
+                <button
+                  key={tag}
+                  onClick={() => navigate(`/notes/tags/${tag}`)}
+                  className="dark:text-[#CACFD8]"
+                >
+                  {tag}
+                </button>
+              </div>
+              <div className="divider mt-[12px] w-[343px] h-[1px] bg-[#E0E4EA] dark:bg-[#232530]"></div>
             </div>
-            <div className="divider mt-[12px] w-[343px] h-[1px] bg-[#E0E4EA]"></div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ export default function Archived() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen">
+    <div className="mb:flex mb:flex-col mb:items-center mb:min-h-screen">
       <div className="logo w-[343px]  py-[13px] tb:py-[23px] tb:w-[704px]">
         <img
           src={logo}

@@ -2,10 +2,12 @@ import logo from "../../public/assets/images/logo.svg";
 import { useNoteContext } from "../Provider/NoteProvider";
 import createNewNote from "../../public/assets/images/icon-plus.svg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function AllNotes() {
-  const { notes } = useNoteContext();
+  const { notes, search } = useNoteContext();
   const navigate = useNavigate();
+
   const formattedDates = notes.notes.map((note) => {
     const date = new Date(note.lastEdited);
     return new Intl.DateTimeFormat("en-GB", {
@@ -15,24 +17,29 @@ export default function AllNotes() {
     }).format(date);
   });
   const handleSeeNote = (index: number) => {
-    navigate(`/notes/${index}`);
+    navigate(index.toString());
   };
+  const filteredNotes = notes.notes.filter(
+    (note) =>
+      note.title?.toLowerCase().includes(search.toLowerCase()) ||
+      note.tags?.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
+  );
 
   return (
-    <div className="flex flex-col items-center min-h-screen">
-      <div className="logo w-[343px] tb:w-[704px] tb:py-[23px] py-[13px] px-[16px]">
+    <div className="mb:flex mb:flex-col mb:items-center tb:items-center tb:flex tb:flex-col min-h-screen dk:items-start dk:ml-[300px] dk:w-[290px]">
+      <div className="logo w-[343px] tb:w-[704px] tb:py-[23px] py-[13px] px-[16px] dk:hidden tb:block mb:block dk:w-[290px]">
         <img
           src={logo}
           alt="logo icon"
           className="dark:filter dark:brightness-0 dark:invert"
         />
       </div>
-      <div className="main-box w-[375px] tb:w-[768px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
-        <h1 className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
+      <div className="main-box w-[375px] tb:w-[768px] dk:w-[290px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
+        <h1 className="dk:hidden text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
           All Notes
         </h1>
-        <div className="notes relative flex flex-col gap-[4px] w-[343px] mt-[16px]">
-          {notes.notes.map((note, index) => {
+        <div className="notes relative flex flex-col gap-[4px] w-[343px] mt-[16px] dk:w-[226px]">
+          {filteredNotes.map((note, index) => {
             return (
               <div
                 onClick={() => handleSeeNote(index)}
@@ -63,7 +70,7 @@ export default function AllNotes() {
                     {formattedDates[index]}
                   </p>
                 </div>
-                <div className="divider w-[343px] tb:w-[704px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
+                <div className="divider w-[343px] tb:w-[704px] dk:w-[185px] bg-[#E0E4EA] h-[1px] dark:bg-[#232530]"></div>
               </div>
             );
           })}

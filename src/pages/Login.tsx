@@ -42,7 +42,7 @@ export default function Login() {
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="container w-[343px] py-[48px] tb:w-[522px] tb:flex tb:flex-col tb:items-center px-[16px] dark:bg-[#0E121B] bg-white rounded-[12px]">
+      <div className="container w-[343px] py-[48px] tb:w-[522px] dk:w-[540px] tb:flex tb:flex-col tb:items-center px-[16px] dark:bg-[#0E121B] bg-white rounded-[12px]">
         <div className="logo flex justify-center">
           <img
             src={logo}
@@ -60,7 +60,7 @@ export default function Login() {
           <div className="email mt-[40px] flex flex-col gap-[6px] ">
             <label
               htmlFor="email"
-              className="text-[14px] tb:w-[458px] dark:text-white text-[#0E121B] font-semibold"
+              className="text-[14px] tb:w-[458px] dk:w-[444px] dark:text-white text-[#0E121B] font-semibold"
             >
               Email Address
             </label>
@@ -69,7 +69,7 @@ export default function Login() {
               id="email"
               {...register("email")}
               placeholder="email@example.com"
-              className="w-[311px] tb:w-[458px] py-[12px] dark:border-[#525866] cursor-pointer px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] tb:w-[458px] py-[12px] dk:w-[444px] dark:border-[#525866] cursor-pointer px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
             />
             <div className="errors">
               {errors.email && (
@@ -83,7 +83,7 @@ export default function Login() {
           <div className="password relative mt-[16px] flex flex-col gap-[6px] ">
             <label
               htmlFor="password"
-              className="text-[14px] tb:w-[458px] dark:text-white text-[#0E121B] font-semibold"
+              className="text-[14px] tb:w-[458px] dk:w-[444px] dark:text-white text-[#0E121B] font-semibold"
             >
               Password
             </label>
@@ -91,7 +91,7 @@ export default function Login() {
               type={isPasswordVisible ? "text" : "password"}
               id="password"
               {...register("password")}
-              className="w-[311px] py-[12px] tb:w-[458px] cursor-pointer dark:border-[#525866] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
+              className="w-[311px] py-[12px] tb:w-[458px] dk:w-[444px] cursor-pointer dark:border-[#525866] px-[16px] shadow-input rounded-[8px] border-[1px] border-[#CACFD8] outline-none text-[14px] font-normal text-[#717784]"
             />
             <img
               src={isPasswordVisible ? hidePasswordIcon : showPasswordIcon}
@@ -111,7 +111,7 @@ export default function Login() {
           </div>
           <button
             type="submit"
-            className="mt-[16px] tb:w-[458px] dark:text-white cursor-pointer w-[311px] py-[12.5px] rounded-[8px] bg-[#335CFF] text-white text-[14px] font-semibold "
+            className="mt-[16px] tb:w-[458px] dk:w-[444px] dk:mt-[20px] dark:text-white cursor-pointer w-[311px] py-[12.5px] rounded-[8px] bg-[#335CFF] text-white text-[14px] font-semibold "
           >
             Login
           </button>
@@ -120,7 +120,7 @@ export default function Login() {
         <p className="mt-[24px] text-center text-[14px] dark:text-[#CACFD8] text-[#525866] font-normal">
           Or log in with:
         </p>
-        <button className="mt-[16px] tb:w-[458px] cursor-pointer w-[311px] flex items-center gap-[16px] justify-center text-[16px] text-[#0E121B] font-semibold border-[1px] border-[#CACFD8] rounded-[12px] py-[16px]">
+        <button className="mt-[16px] tb:w-[458px] dk:w-[444px] cursor-pointer w-[311px] flex items-center gap-[16px] justify-center text-[16px] text-[#0E121B] font-semibold border-[1px] border-[#CACFD8] rounded-[12px] py-[16px]">
           <img
             src={googleIcon}
             alt=""

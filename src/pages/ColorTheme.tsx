@@ -5,7 +5,7 @@ import moonIcon from "../../public/assets/images/icon-moon.svg";
 import systemIcon from "../../public/assets/images/icon-system-theme.svg";
 import { useState } from "react";
 
-export default function ColorTheme() {
+export default function ColorTheme({ noMargin = false }) {
   const [lightMode, setLightChecked] = useState<boolean>(false);
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [systemMode, setSystemMode] = useState<boolean>(false);
@@ -31,18 +31,22 @@ export default function ColorTheme() {
     }
   };
   return (
-    <div className="flex flex-col items-center min-h-screen">
-      <div className="logo w-[343px] py-[13px] tb:w-[704px] tb:py-[23px]">
+    <div
+      className={`flex flex-col items-center min-h-screen ${
+        noMargin ? "" : "dk:ml-[600px]"
+      } dk:w-[528px]`}
+    >
+      <div className="logo w-[343px] py-[13px] tb:w-[704px] tb:py-[23px] dk:hidden">
         <img
           src={logo}
           alt="logo icon"
           className="dark:filter dark:brightness-0 dark:invert"
         />
       </div>
-      <div className="main-box w-[375px] tb:w-[768px] tb:py-[24px] tb:px-[32px] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
+      <div className="main-box w-[375px] dk:w-[528px] tb:w-[768px] tb:py-[24px] tb:px-[32px] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px] dark:bg-[#0E121B]">
         <div
           onClick={goBack}
-          className="goback w-[343px] tb:w-[704px] mt-[24px] flex items-center gap-[8px]"
+          className="goback w-[343px] dk:hidden tb:w-[704px] mt-[24px] flex items-center gap-[8px]"
         >
           <img
             src={arrowLeft}
@@ -60,7 +64,7 @@ export default function ColorTheme() {
           </p>
         </div>
         <div className="modes flex flex-col gap-[16px]">
-          <div className="lightmode w-[343px] tb:w-[704px] flex items-center dark:bg-[#232530] dark:border-[#232530] gap-[16px] border-[1px] border-[#E0E4EA] rounded-[12px] p-[16px] mt-[20px]">
+          <div className="lightmode w-[343px] tb:w-[704px] dk:w-[528px] flex items-center dark:bg-[#232530] dark:border-[#232530] gap-[16px] border-[1px] border-[#E0E4EA] rounded-[12px] p-[16px] mt-[20px]">
             <div className="icon w-[40px] h-[40px] dark:bg-[#0E121B] dark:border-[#2B303B] border-[1px] border-[#E0E4EA] rounded-[12px] flex items-center justify-center">
               <img
                 src={sunIcon}
@@ -68,7 +72,7 @@ export default function ColorTheme() {
                 className="dark:filter dark:brightness-0 dark:invert"
               />
             </div>
-            <div className="text flex flex-col gap-[6px] w-[223px] tb:w-[584px]">
+            <div className="text flex flex-col gap-[6px] w-[223px] tb:w-[584px] dk:w-[528px]">
               <h2 className="font-medium text-[14px] text-[#0E121B] leading-[120%] tracking-[-0.2px] dark:text-white">
                 Light Mode
               </h2>
@@ -85,7 +89,7 @@ export default function ColorTheme() {
               />
             </div>
           </div>
-          <div className="darkmode w-[343px] dark:bg-[#232530] tb:w-[704px] dark:border-[#232530] flex items-center gap-[16px] border-[1px] border-[#E0E4EA] rounded-[12px] p-[16px] mt-[20px]">
+          <div className="darkmode w-[343px] dk:w-[528px] dark:bg-[#232530] tb:w-[704px] dark:border-[#232530] flex items-center gap-[16px] border-[1px] border-[#E0E4EA] rounded-[12px] p-[16px] mt-[20px]">
             <div className="icon w-[40px] h-[40px] dark:bg-[#0E121B] dark:border-[#2B303B] border-[1px] border-[#E0E4EA] rounded-[12px] flex items-center justify-center">
               <img
                 src={moonIcon}
@@ -93,7 +97,7 @@ export default function ColorTheme() {
                 className="dark:filter dark:brightness-0 dark:invert"
               />
             </div>
-            <div className="text flex flex-col gap-[6px] w-[223px] tb:w-[584px]">
+            <div className="text flex flex-col gap-[6px] w-[223px] tb:w-[584px] dk:w-[528px]">
               <h2 className="font-medium text-[14px] text-[#0E121B] leading-[120%] tracking-[-0.2px] dark:text-white">
                 Dark Mode
               </h2>
@@ -110,7 +114,7 @@ export default function ColorTheme() {
               />
             </div>
           </div>
-          <div className="systemMode w-[343px] tb:w-[704px] dark:bg-[#232530] dark:border-[#232530] flex items-center gap-[16px] border-[1px] border-[#E0E4EA] rounded-[12px] p-[16px] mt-[20px]">
+          <div className="systemMode w-[343px] tb:w-[704px] dk:w-[528px] dark:bg-[#232530] dark:border-[#232530] flex items-center gap-[16px] border-[1px] border-[#E0E4EA] rounded-[12px] p-[16px] mt-[20px]">
             <div className="icon w-[40px] h-[40px] dark:bg-[#0E121B] dark:border-[#2B303B] border-[1px] border-[#E0E4EA] rounded-[12px] flex items-center justify-center">
               <img
                 src={systemIcon}
@@ -118,7 +122,7 @@ export default function ColorTheme() {
                 className="dark:filter dark:brightness-0 dark:invert"
               />
             </div>
-            <div className="text flex flex-col gap-[6px] w-[223px] tb:w-[584px]">
+            <div className="text flex flex-col gap-[6px] w-[223px] tb:w-[584px] dk:w-[528px]">
               <h2 className="font-medium text-[14px] text-[#0E121B] leading-[120%] tracking-[-0.2px] dark:text-white">
                 System
               </h2>
@@ -135,7 +139,7 @@ export default function ColorTheme() {
               />
             </div>
           </div>
-          <div className="apply mt-[4px] w-[343px] flex justify-end tb:w-[704px]">
+          <div className="apply mt-[4px] w-[343px] flex justify-end tb:w-[704px] dk:w-[528px]">
             <button
               onClick={handleChangeMode}
               className="py-[12px] w-[132px] rounded-[8px] bg-[#335CFF] text-[14px] text-white font-medium leading-[120%] tracking-[-0.2px]"

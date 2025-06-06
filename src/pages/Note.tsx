@@ -18,6 +18,22 @@ export default function Note() {
   const [archived, setArchived] = useState<boolean>(false);
   const note = notes.notes[Number(index)];
 
+  if (typeof index === "undefined") {
+    return (
+      <div className="flex flex-col items-center justify-center h-full">
+        <p className="text-gray-400 text-lg">Select a note to view details.</p>
+      </div>
+    );
+  }
+
+  if (!note) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full">
+        <p className="text-red-500 text-lg">Note not found.</p>
+      </div>
+    );
+  }
+
   const handleGoBack = () => {
     window.history.back();
   };
@@ -42,9 +58,10 @@ export default function Note() {
     setArchiveBox(false);
     setArchived(true);
   };
+
   return (
-    <div className="flex flex-col items-center min-h-screen">
-      <div className="logo py-[13px] px-[16px] w-[343px] tb:py-[23px] tb:w-[704px]">
+    <div className="flex flex-col items-center dk:w-[588px] mb:fixed tb:fixed dk:static top-0 left-0 w-full mb:bottom-[56px] tb:bottom-[56px] dk:bottom-0 z-50 bg-white dark:bg-[#0E121B]">
+      <div className="logo py-[13px] px-[16px] mb:block tb:block w-[343px] tb:py-[23px] tb:w-[704px] dk:hidden">
         <img
           src={logo}
           alt="logo icon"
@@ -127,8 +144,8 @@ export default function Note() {
           </div>
         </div>
       )}
-      <div className="main-box w-[375px] flex-grow tb:w-[768px] rounded-t-[12px] bg-white dark:bg-[#0E121B] tb:py-[24px] tb:px-[32px] py-[20px] px-[16px]">
-        <div className="options flex justify-between items-center">
+      <div className="main-box w-full dk:w-[588px] tb:w-[768px] rounded-t-[12px] bg-white dark:bg-[#0E121B] tb:py-[24px] tb:px-[32px] py-[20px] px-[16px] tb:flex tb:flex-col tb:items-center mb:flex mb:items-center mb:flex-col">
+        <div className="options mb:w-[343px] tb:w-[704px] mb:flex mb:justify-between mb:items-center tb:flex tb:items-center tb:justify-between dk:hidden">
           <div
             onClick={handleGoBack}
             className="goback flex items-center gap-[4px]"
@@ -171,7 +188,7 @@ export default function Note() {
             </div>
           </div>
         </div>
-        <div className="divider mt-[12px] w-[343px] h-[1px] bg-[#E0E4EA] dark:bg-[#0E121B]"></div>
+        <div className="divider mt-[12px] w-[343px] tb:w-[704px] h-[1px] bg-[#E0E4EA] dark:bg-[#0E121B] dk:hidden"></div>
         <div className="info flex flex-col">
           <div className="title mt-[12px] w-[343px] tb:w-[704px]">
             <p className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
@@ -214,7 +231,7 @@ export default function Note() {
               </div>
             </div>
           </div>
-          <div className="divider mt-[12px] w-[343px] tb:w-[704px] h-[1px] bg-[#E0E4EA] dark:bg-[#232530]"></div>
+          <div className="divider mt-[12px] w-[343px] tb:w-[704px] dk:w-[540px] h-[1px] bg-[#E0E4EA] dark:bg-[#232530]"></div>
           <div className="content flex flex-col mt-[12px]">
             {note.content.split("\n").map((line, i) =>
               line.trim() === "" ? (

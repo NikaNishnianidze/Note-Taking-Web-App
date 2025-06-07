@@ -20,10 +20,10 @@ export default function TagWithCreateNote() {
       <Tag />
       <CreateNote />
       {isAllTag && (
-        <div className="absolute dk:block tb:hidden mb:hidden top-4 left-0 dk:ml-[290px] w-[1168px] bg-white px-4 py-2 dk:flex dk:items-center dk:justify-between">
-          <p className="text-[#525866] text-[24px] font-bold leading-[120%] tracking-[-0.5px]">
+        <div className="absolute dk:block dark:bg-[#0E121B] tb:hidden mb:hidden top-4 left-0 dk:ml-[290px] w-[1168px] bg-white px-4 py-2 dk:flex dk:items-center dk:justify-between">
+          <p className="text-[#525866] dark:text-[#CACFD8] text-[24px] font-bold leading-[120%] tracking-[-0.5px]">
             Notes Tagged:{" "}
-            <span className="text-[#0E121B] text-[24px] font-bold">
+            <span className="text-[#0E121B] dark:text-white text-[24px] font-bold">
               {chosenTag}
             </span>
           </p>
@@ -31,15 +31,16 @@ export default function TagWithCreateNote() {
             <input
               onChange={(e) => setSearch(e.target.value)}
               type="text"
-              className="w-[300px] border-[1px] border-[#CACFD8] relative flex items-center pl-[44px] bg-white rounded-[8px] py-[12px] outline-none text-[14px] font-normal tracking-[-0.2px]"
+              className="w-[300px] border-[1px] border-[#CACFD8] dark:bg-[#0E121B] dark:placeholder-[#99A0AE] relative flex items-center pl-[44px] bg-white rounded-[8px] py-[12px] outline-none text-[14px] font-normal tracking-[-0.2px]"
               placeholder="Search by title, content, or tags…"
             />
             <img
               src={searchIcon}
               alt="search Icon"
-              className="absolute right-83 w-[20px] h-[20px]"
+              className="absolute right-83 w-[20px] h-[20px] dark:filter dark:brightness-0 dark:invert"
             />
             <img
+              className="dark:filter dark:brightness-0 dark:invert"
               src={settingsIcon}
               alt="settings icon"
               onClick={handleSeeSettings}

@@ -60,7 +60,7 @@ export default function Note() {
   };
 
   return (
-    <div className="flex flex-col items-center dk:w-[588px] mb:fixed tb:fixed dk:static top-0 left-0 w-full mb:bottom-[56px] tb:bottom-[56px] dk:bottom-0 z-50 bg-white dark:bg-[#0E121B]">
+    <div className="flex flex-col items-center dk:w-[500px] mb:fixed tb:fixed dk:static top-0 left-0 w-full mb:bottom-[56px] tb:bottom-[56px] dk:bottom-0 z-50 bg-white dark:bg-[#0E121B]">
       <div className="logo py-[13px] px-[16px] mb:block tb:block w-[343px] tb:py-[23px] tb:w-[704px] dk:hidden">
         <img
           src={logo}
@@ -144,7 +144,7 @@ export default function Note() {
           </div>
         </div>
       )}
-      <div className="main-box w-full dk:w-[588px] tb:w-[768px] rounded-t-[12px] bg-white dark:bg-[#0E121B] tb:py-[24px] tb:px-[32px] py-[20px] px-[16px] tb:flex tb:flex-col tb:items-center mb:flex mb:items-center mb:flex-col">
+      <div className="main-box w-full dk:w-[500px] tb:w-[768px] rounded-t-[12px] bg-white dark:bg-[#0E121B] tb:py-[24px] tb:px-[32px] py-[20px] px-[16px] tb:flex tb:flex-col tb:items-center mb:flex mb:items-center mb:flex-col">
         <div className="options mb:w-[343px] tb:w-[704px] mb:flex mb:justify-between mb:items-center tb:flex tb:items-center tb:justify-between dk:hidden">
           <div
             onClick={handleGoBack}

@@ -9,14 +9,15 @@ import Login from "./pages/Login";
 import Layout from "./Layout/Layout";
 import Note from "./pages/Note";
 import Archived from "./pages/Archived";
-import ArchivedNote from "./pages/ArchivedNote";
 import Tags from "./pages/Tags";
-import Tag from "./pages/Tag";
-import ChosenTag from "./pages/ChosenTag";
 import Search from "./pages/Search";
-import CreateNote from "./pages/CreateNote";
 import SettingsWithColorTheme from "./pages/SettingsWithColorTheme";
 import Settings from "./pages/Settings";
+import ArchivedWithNote from "./Layout/ArchiedWithNote";
+import TagsAndTag from "./Layout/TagsAngTag";
+import AllNotesWithCreateNote from "./Layout/AllNotesWithCreateNote";
+import ArchivedWithCreateNote from "./Layout/ArchivedWithCreateNote";
+import TagWithCreateNote from "./Layout/TagWithCreateNote";
 
 const router = createBrowserRouter([
   {
@@ -39,14 +40,16 @@ const router = createBrowserRouter([
     children: [
       { path: ":index", element: <Note /> },
       { path: "archived", element: <Archived /> },
-      { path: "archived/:index", element: <ArchivedNote /> },
+      { path: "archived/:index", element: <ArchivedWithNote /> },
+      { path: "archived/newnote", element: <ArchivedWithCreateNote /> },
       { path: "tags", element: <Tags /> },
-      { path: "tags/:tag", element: <Tag /> },
-      { path: "tags/:tag/:index", element: <ChosenTag /> },
+      { path: "tags/:tag", element: <TagsAndTag /> },
+      { path: "tags/:tag/:index", element: <TagsAndTag /> },
+      { path: "tags/:tag/newnote", element: <TagWithCreateNote /> },
       { path: "search", element: <Search /> },
       { path: "settings", element: <Settings /> },
       { path: "settings/color-theme", element: <SettingsWithColorTheme /> },
-      { path: "newnote", element: <CreateNote /> },
+      { path: "newnote", element: <AllNotesWithCreateNote /> },
     ],
   },
 ]);

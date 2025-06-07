@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Archived() {
-  const { notes } = useNoteContext();
+  const { notes, search } = useNoteContext();
   const navigate = useNavigate();
-  const archivedNotes = notes.notes.filter((note) => note.isArchived);
 
   const formattedDates = notes.notes.map((note) => {
     const date = new Date(note.lastEdited);
@@ -20,10 +19,18 @@ export default function Archived() {
   const handleSeeArchivedNote = (index: number) => {
     navigate(`/notes/archived/${index}`);
   };
+  const archivedNotes = notes.notes.filter(
+    (note) =>
+      note.isArchived &&
+      (note.title?.toLowerCase().includes(search.toLowerCase()) ||
+        note.tags?.some((tag) =>
+          tag.toLowerCase().includes(search.toLowerCase())
+        ))
+  );
 
   return (
-    <div className="mb:flex mb:flex-col mb:items-center mb:min-h-screen">
-      <div className="logo w-[343px]  py-[13px] tb:py-[23px] tb:w-[704px]">
+    <div className="mb:flex mb:flex-col mb:items-center mb:min-h-screen dk:ml-[300px] dk:w-[290px]">
+      <div className="logo w-[343px]  py-[13px] tb:py-[23px] tb:w-[704px] mb:block tb:block dk:hidden">
         <img
           src={logo}
           alt="logo icon"
@@ -31,12 +38,18 @@ export default function Archived() {
         />
       </div>
 
-      <div className="main-box w-[375px] tb:w-[768px] dark:bg-[#0E121B] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px]">
+      <div className="main-box w-[375px] tb:w-[768px]  dk:w-[290px] dark:bg-[#0E121B] flex-grow rounded-t-[8px] bg-white py-[20px] px-[16px]">
         <div className="text w-[343px] mt-[20px] flex flex-col gap-[8px]">
-          <h1 className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
+          <h1 className="text-[24px] dk:hidden text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
             Archived Notes
           </h1>
-          <p className="text-[14px] text-[#2B303B] tb:w-[704px] tb:mt-[10px] dark:text-[#E0E4EA] font-normal leading-[130%] tracking-[-0.2px]">
+          <button
+            onClick={() => navigate("/notes/archived/newnote")}
+            className="mb:hidden tb:hidden dk:block w-[242px] rounded-[8px] mb-[16px] py-[12px] text-white text-[14px] font-semibold bg-[#335CFF]"
+          >
+            + Create New Note
+          </button>
+          <p className="text-[14px] dk:w-[242px] text-[#2B303B] tb:w-[704px] tb:mt-[10px] dark:text-[#E0E4EA] font-normal leading-[130%] tracking-[-0.2px]">
             All your archived notes are stored here. You can restore or delete
             them anytime.
           </p>
@@ -73,7 +86,7 @@ export default function Archived() {
                       {formattedDates[index]}
                     </p>
                   </div>
-                  <div className="divider w-[343px] bg-[#E0E4EA] tb:w-[704px] h-[1px] dark:bg-[#232530]"></div>
+                  <div className="divider w-[343px] bg-[#E0E4EA] tb:w-[704px] h-[1px] dark:bg-[#232530] dk:w-[230px]"></div>
                 </div>
               );
             })
@@ -93,10 +106,8 @@ export default function Archived() {
           )}
         </div>
         <div
-          onClick={() => {
-            navigate("/notes/newnote");
-          }}
-          className="new-note fixed bottom-17 right-4 w-[48px] h-[48px] rounded-full bg-[#335CFF] flex justify-center items-center"
+          onClick={() => navigate("/notes/newnote")}
+          className="new-note dk:hidden fixed bottom-17 right-4 w-[48px] h-[48px] rounded-full bg-[#335CFF] flex justify-center items-center"
         >
           <img
             src={createNewNote}

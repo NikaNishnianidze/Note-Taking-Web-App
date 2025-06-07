@@ -8,6 +8,8 @@ interface IContext {
   setNotes: React.Dispatch<React.SetStateAction<Tinfos>>;
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
+  chosenTag: string;
+  setChosenTag: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const noteContext = createContext<IContext>({
@@ -15,15 +17,20 @@ const noteContext = createContext<IContext>({
   setNotes: () => {},
   search: "",
   setSearch: () => {},
+  chosenTag: "cooking",
+  setChosenTag: () => {},
 });
 
 export default function NoteProvider({ children }: { children: ReactNode }) {
   const [notes, setNotes] = useState<Tinfos>(data);
   const [search, setSearch] = useState<string>("");
+  const [chosenTag, setChosenTag] = useState<string>("cooking");
 
   return (
     <>
-      <noteContext.Provider value={{ notes, setNotes, search, setSearch }}>
+      <noteContext.Provider
+        value={{ notes, setNotes, search, setSearch, chosenTag, setChosenTag }}
+      >
         {children}
       </noteContext.Provider>
     </>

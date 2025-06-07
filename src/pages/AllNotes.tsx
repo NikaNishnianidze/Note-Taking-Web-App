@@ -38,6 +38,12 @@ export default function AllNotes() {
         <h1 className="dk:hidden text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
           All Notes
         </h1>
+        <button
+          onClick={() => navigate("/notes/newnote")}
+          className="mb:hidden tb:hidden dk:block w-[242px] rounded-[8px] py-[12px] text-center bg-[#335CFF] text-white text-[14px] font-semibold"
+        >
+          + Create New Note
+        </button>
         <div className="notes relative flex flex-col gap-[4px] w-[343px] mt-[16px] dk:w-[226px]">
           {filteredNotes.map((note, index) => {
             return (
@@ -78,7 +84,7 @@ export default function AllNotes() {
             onClick={() => {
               navigate("/notes/newnote");
             }}
-            className="new-note fixed bottom-17 right-4 w-[48px] h-[48px] rounded-full bg-[#335CFF] flex justify-center items-center"
+            className="new-note flex justify-center items-center w-[48px] h-[48px] rounded-full bg-[#335CFF] dk:hidden mb:fixed tb:fixed bottom-17 right-4 z-50"
           >
             <img
               src={createNewNote}

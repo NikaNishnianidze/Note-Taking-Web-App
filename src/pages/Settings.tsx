@@ -1,7 +1,5 @@
 import logo from "../../public/assets/images/logo.svg";
 import sunIcon from "../../public/assets/images/icon-sun.svg";
-import fontIcon from "../../public/assets/images/icon-font.svg";
-import changePasswordIcon from "../../public/assets/images/icon-lock.svg";
 import logoutIcon from "../../public/assets/images/icon-logout.svg";
 import { useNavigate } from "react-router-dom";
 

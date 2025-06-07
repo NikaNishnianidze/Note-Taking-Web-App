@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../../public/assets/images/logo.svg";
 import tagsIcon from "../../public/assets/images/icon-tag.svg";
+import { useNoteContext } from "../Provider/NoteProvider";
 
 const tagList = [
   "cooking",
@@ -16,7 +17,19 @@ const tagList = [
 ];
 
 export default function Tags() {
+  const { setChosenTag, chosenTag, search, notes } = useNoteContext();
   const navigate = useNavigate();
+  const filteredNotes = notes.notes.filter(
+    (note) =>
+      note.tags &&
+      note.tags.some((t) => t.toLowerCase() === chosenTag?.toLowerCase()) &&
+      (note.title?.toLowerCase().includes(search.toLowerCase()) ||
+        note.content?.toLowerCase().includes(search.toLowerCase()) ||
+        note.tags.some((tag) =>
+          tag.toLowerCase().includes(search.toLowerCase())
+        ))
+  );
+  console.log(chosenTag);
   return (
     <div className="flex flex-col items-center gap-[11px] min-h-screen">
       <div className="logo w-[343px] py-[13px] tb:w-[704px] tb:py-[23px] dk:hidden tb:block mb:block">
@@ -35,6 +48,7 @@ export default function Tags() {
         <div className="tag-list flex flex-col items-center gap-[11.5px]">
           {tagList.map((tag, index) => (
             <div
+              onClick={() => setChosenTag(tag)}
               key={index}
               className="flex flex-col items-center gap-[8px] w-[343px] tb:w-[704px] dk:w-[240px]"
             >

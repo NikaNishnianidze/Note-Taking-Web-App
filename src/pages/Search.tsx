@@ -3,11 +3,9 @@ import { useNoteContext } from "../Provider/NoteProvider";
 import createNewNote from "../../public/assets/images/icon-plus.svg";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "../../public/assets/images/icon-search.svg";
-import { useState } from "react";
 
 export default function Search() {
-  const { notes } = useNoteContext();
-  const [search, setSearch] = useState<string>("");
+  const { notes, search, setSearch } = useNoteContext();
   const navigate = useNavigate();
   const formattedDates = notes.notes.map((note) => {
     const date = new Date(note.lastEdited);

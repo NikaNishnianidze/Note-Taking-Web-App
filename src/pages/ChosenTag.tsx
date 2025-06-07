@@ -9,23 +9,23 @@ import lastEditedIcon from "../../public/assets/images/icon-clock.svg";
 import { useState } from "react";
 
 export default function ChosenTag() {
-  const { index } = useParams();
   const { notes, setNotes } = useNoteContext();
-  const note = notes.notes[Number(index)];
+  const { index, tag } = useParams();
+  const filteredNotes = notes.notes.filter(
+    (note) =>
+      note.tags && note.tags.some((t) => t.toLowerCase() === tag?.toLowerCase())
+  );
+  const note = filteredNotes[Number(index)];
   const [deleteBox, setDeleteBox] = useState<boolean>(false);
   const [archiveBox, setArchiveBox] = useState<boolean>(false);
   const [archived, setArchived] = useState<boolean>(false);
   const handleGoBack = () => {
     window.history.back();
   };
-  const formattedDate = new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  }).format(new Date(note.lastEdited));
   const handleDelete = () => {
     const newNotes = notes.notes.filter((_, i) => i !== Number(index));
     setNotes({ notes: newNotes });
+    // Go back to tag list
     window.history.back();
   };
   const handleArchive = () => {
@@ -38,9 +38,31 @@ export default function ChosenTag() {
     setArchiveBox(false);
     setArchived(true);
   };
+  if (!note) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full">
+        <p className="text-red-500 text-lg">Note not found for this tag.</p>
+      </div>
+    );
+  }
+  const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(note.lastEdited));
   return (
-    <div className="flex flex-col items-center min-h-screen">
-      <div className="logo py-[13px] w-[343px] tb:w-[704px] tb:py-[23px]">
+    <div
+      className="flex flex-col items-center
+    dk:static absolute
+    dk:w-[500px] w-full
+    dk:left-auto left-0 dk:right-auto right-0
+    dk:top-auto top-0
+    dk:bottom-0 bottom-[56px]
+    dk:z-auto z-50
+    dk:mx-0 mx-auto
+    bg-white dark:bg-[#0E121B] dk:ml-[40px]"
+    >
+      <div className="logo py-[13px] w-[343px] tb:w-[704px] tb:py-[23px] dk:hidden">
         <img
           src={logo}
           alt="logo icon"
@@ -123,11 +145,21 @@ export default function ChosenTag() {
           </div>
         </div>
       )}
-      <div className="main-box w-[375px] flex-grow tb:w-[768px] tb:py-[24px] tb:px-[32px] dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
+      <div
+        className="main-box 
+  w-[375px] tb:w-[768px] dk:w-[588px] 
+  flex-grow 
+  py-[20px] px-[16px] tb:py-[24px] tb:px-[32px] dk:py-[2px] 
+  bg-white dark:bg-[#0E121B] 
+  rounded-t-[8px] 
+  absolute dk:static 
+  top-0 left-0 tb:left-0 dk:left-auto 
+  z-50 dk:z-auto"
+      >
         <div className="options flex justify-between items-center w-[343px] mt-[20px] tb:w-[704px]">
           <div
             onClick={handleGoBack}
-            className="goback flex items-center gap-[4px]"
+            className="goback dk:hidden flex items-center gap-[4px]"
           >
             <img
               src={arrowLeft}
@@ -138,7 +170,7 @@ export default function ChosenTag() {
               Go Back
             </p>
           </div>
-          <div className="save-cancel-delete-archive flex items-center gap-[16px]">
+          <div className="save-cancel-delete-archive dk:hidden flex items-center gap-[16px]">
             <div className="delete">
               <img
                 onClick={() => setDeleteBox(true)}
@@ -167,8 +199,8 @@ export default function ChosenTag() {
             </div>
           </div>
         </div>
-        <div className="titile mt-[12px] w-[343px]">
-          <p className="text-[24px] text-[#0E121B] tb:w-[704px] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
+        <div className="titile mt-[12px] w-[343px] ">
+          <p className="text-[24px] text-[#0E121B] tb:w-[704px] dk:w-[450px] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
             {note.title}
           </p>
         </div>

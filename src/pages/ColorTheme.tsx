@@ -32,7 +32,7 @@ export default function ColorTheme({ noMargin = false }) {
   };
   return (
     <div
-      className={`flex flex-col items-center min-h-screen ${
+      className={`flex flex-col items-center dk:w-[500px] mb:fixed tb:fixed dk:static top-0 left-0 w-full mb:bottom-[56px] tb:bottom-[56px] dk:bottom-0 z-50 bg-white dark:bg-[#0E121B] ${
         noMargin ? "" : "dk:ml-[600px]"
       } dk:w-[528px]`}
     >

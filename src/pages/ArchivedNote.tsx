@@ -18,6 +18,13 @@ export default function ArchivedNote() {
   const handleGoBack = () => {
     window.history.back();
   };
+  if (!note) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full">
+        <p className="text-red-500 text-lg">Archived note not found.</p>
+      </div>
+    );
+  }
   const formattedDate = new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",
     month: "short",
@@ -39,8 +46,8 @@ export default function ArchivedNote() {
     setArchived(true);
   };
   return (
-    <div className="flex flex-col items-center min-h-screen">
-      <div className="logo py-[13px] w-[343px] tb:w-[704px] tb:py-[23px]">
+    <div className="flex flex-col items-center dk:w-[500px] mb:fixed tb:fixed dk:static top-0 left-0 w-full mb:bottom-[56px] tb:bottom-[56px] dk:bottom-0 z-50 bg-white dark:bg-[#0E121B]">
+      <div className="logo py-[13px] w-[343px] tb:w-[704px] tb:py-[23px] dk:hidden">
         <img
           src={logo}
           alt="logo icon"
@@ -124,8 +131,8 @@ export default function ArchivedNote() {
         </div>
       )}
       {note ? (
-        <div className="main-box w-[375px] tb:w-[768px] tb:py-[24px] tb:px-[32px] flex-grow dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
-          <div className="options flex justify-between items-center w-[343px] mt-[20px] tb:w-[704px]">
+        <div className="main-box w-[375px]  tb:w-[768px] dk:w-[290px] tb:py-[24px] tb:px-[32px] dk:w-[400px] flex-grow dark:bg-[#0E121B] rounded-t-[8px] bg-white py-[20px] px-[16px]">
+          <div className="options dk:hidden flex justify-between items-center w-[343px] mt-[20px] tb:w-[704px] dk:w-[400px]">
             <div
               onClick={handleGoBack}
               className="goback flex items-center gap-[4px]"
@@ -168,13 +175,13 @@ export default function ArchivedNote() {
               </div>
             </div>
           </div>
-          <div className="w-[343px] tb:w-[704px] mt-[20px]">
+          <div className="w-[343px] tb:w-[704px] mt-[20px] dk:w-[400px]">
             <div className="title">
-              <p className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px]">
+              <p className="text-[24px] text-[#0E121B] dark:text-white font-bold leading-[120%] tracking-[-0.5px] dk:w-[400px]">
                 {note.title}
               </p>
             </div>
-            <div className="basic-info flex flex-col gap-[8px] mt-[16px]">
+            <div className="basic-info flex flex-col gap-[8px] mt-[16px] dk:w-[400px]">
               <div className="tags flex items-center gap-[74px]">
                 <div className="icon flex items-center gap-[8px]">
                   <img

@@ -7,7 +7,6 @@ import settingIcon from "../../public/assets/images/icon-settings.svg";
 import { useNavigate } from "react-router-dom";
 import logo from "../../public/assets/images/logo.svg";
 import Tags from "../pages/Tags";
-import DesktopContent from "../pages/DesktopContent";
 export default function MobileNavigation() {
   const [active, setActive] = useState<string>("home");
   const navigate = useNavigate();

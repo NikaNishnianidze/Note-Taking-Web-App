@@ -15,21 +15,29 @@ export default function ArchivedWithNote() {
   const handleSeeSettings = () => {
     navigate("/notes/settings");
   };
-  const isArchiveOpen = /^\/notes\/archived(\/\d+)?$/.test(location.pathname);
   const isAllArchived = /^\/notes\/archived(\/\d+)?$/.test(location.pathname);
   const handleDelete = () => {
     const newNotes = notes.notes.filter((_, i) => i !== Number(index));
     setNotes({ notes: newNotes });
     window.history.back();
   };
-  const handleRestore = () => {
-    if (index === undefined) return;
+  const archivedNotes = notes.notes.filter((note) => note.isArchived);
 
+  const noteToRestore = archivedNotes[Number(index)];
+  const globalIndex = notes.notes.findIndex(
+    (n) =>
+      n.title === noteToRestore?.title && n.content === noteToRestore?.content
+  );
+
+  const handleRestore = () => {
+    if (globalIndex === -1) return;
     const updatedNotes = notes.notes.map((note, i) =>
-      i === Number(index) ? { ...note, isArchived: false } : note
+      i === globalIndex ? { ...note, isArchived: false } : note
     );
     setNotes({ notes: updatedNotes });
+    window.history.back();
   };
+
   return (
     <div className="dk:flex dk:flex-row w-full">
       <Archived />

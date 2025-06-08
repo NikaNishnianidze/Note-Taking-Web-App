@@ -2,7 +2,6 @@ import { useNoteContext } from "../Provider/NoteProvider";
 import logo from "../../public/assets/images/logo.svg";
 import createNewNote from "../../public/assets/images/icon-plus.svg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export default function Archived() {
   const { notes, search } = useNoteContext();

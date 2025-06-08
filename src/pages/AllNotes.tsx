@@ -2,7 +2,6 @@ import logo from "../../public/assets/images/logo.svg";
 import { useNoteContext } from "../Provider/NoteProvider";
 import createNewNote from "../../public/assets/images/icon-plus.svg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export default function AllNotes() {
   const { notes, search } = useNoteContext();

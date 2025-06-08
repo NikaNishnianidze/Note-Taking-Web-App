@@ -1,5 +1,4 @@
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
-import ArchivedNotes from "../pages/ArchivedNote";
 import MobileNavigation from "./MobileNavigation";
 import AllNotes from "../pages/AllNotes";
 import searchIcon from "../../public/assets/images/icon-search.svg";

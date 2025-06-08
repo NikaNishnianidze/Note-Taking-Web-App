@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import data from "../data.json";
 import type { Tinfos } from "../data";
-import { string } from "yup";
 
 interface IContext {
   notes: Tinfos;

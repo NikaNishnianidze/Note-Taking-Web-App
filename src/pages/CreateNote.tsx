@@ -7,7 +7,7 @@ import clockIcon from "../../public/assets/images/icon-clock.svg";
 import type { IInfos } from "../data";
 
 export default function CreateNote() {
-  const { notes, setNotes } = useNoteContext();
+  const { setNotes } = useNoteContext();
   const [title, setTitle] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [saved, setSaved] = useState<boolean>(false);

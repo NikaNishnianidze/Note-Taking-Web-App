@@ -1,7 +1,7 @@
 import CreateNote from "../pages/CreateNote";
 import Tag from "../pages/Tag";
 import { useNoteContext } from "../Provider/NoteProvider";
-import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import searchIcon from "../../public/assets/images/icon-search.svg";
 import settingsIcon from "../../public/assets/images/icon-settings.svg";
 export default function TagWithCreateNote() {

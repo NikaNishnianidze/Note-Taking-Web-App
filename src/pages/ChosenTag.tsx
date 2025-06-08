@@ -238,7 +238,7 @@ export default function ChosenTag() {
             </p>
           </div>
         </div>
-        <div className="divider mt-[12px] w-[343px] tb:w-[704px] h-[1px] bg-[#E0E4EA] dark:bg-[#232530]"></div>
+        <div className="divider mt-[12px] w-[343px] tb:w-[704px] dk:w-[330px] h-[1px] bg-[#E0E4EA] dark:bg-[#232530]"></div>
         <div className="content flex flex-col mt-[12px] w-[343px]">
           {note.content.split("\n").map((line, i) =>
             line.trim() === "" ? (
